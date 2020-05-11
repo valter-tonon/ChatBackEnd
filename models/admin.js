@@ -12,12 +12,13 @@ AdminSchema.pre('save', function(next){
     if(!Admin.isModified('password')){
         return next()
     }
-    bcrypt.genSalt((err, salt)=>{
+    next()
+   /* bcrypt.genSalt((err, salt)=>{
         bcrypt.hash(Admin.password,salt,(err,hash)=>{
             Admin.password = hash
             next()
            })
-      })
+      })*/
 
 })
 AdminSchema.methods.checkPassword = function(password){

@@ -3,8 +3,8 @@ const app = express()
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
 
-const redis = require('socket.io-redis')
-io.adapter(redis())
+//const redis = require('socket.io-redis')
+//io.adapter(redis())
 
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
