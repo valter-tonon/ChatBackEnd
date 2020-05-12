@@ -1,24 +1,24 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
+//const bcrypt = require('bcrypt')
 
 const AdminSchema = new mongoose.Schema({
     username: String,
     password: String,
     roles: String
 })
-AdminSchema.pre('save', function(next){
+/*AdminSchema.pre('save', function(next){
     const Admin = this
 
     if(!Admin.isModified('password')){
         return next()
     }
     next()
-   /* bcrypt.genSalt((err, salt)=>{
+    bcrypt.genSalt((err, salt)=>{
         bcrypt.hash(Admin.password,salt,(err,hash)=>{
             Admin.password = hash
             next()
            })
-      })*/
+      })
 
 })
 AdminSchema.methods.checkPassword = function(password){
@@ -32,7 +32,7 @@ AdminSchema.methods.checkPassword = function(password){
         })
     })
     
-}
+}*/
 
 const Admin = mongoose.model('Admin', AdminSchema)
 

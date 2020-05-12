@@ -49,13 +49,13 @@ app.set('view engine', 'ejs')
 
 app.get('/',  (req, res) => res.render('home'))
 app.post('/auth',async (req, res) => {
-
+  const nome = req.body.nome
   const token = await jwt.sign({
     data:{name: req.body.name},
   },jwtSecret)
  
   res.send({
-    token
+    token,nome
   })
 })
 app.post('/admin', async(req,res)=>{
